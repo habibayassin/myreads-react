@@ -20,9 +20,10 @@ class SearchBook extends React.Component {
 
         let query = event.target.value;
         this.setState({ query });
+        console.log(query);
         if (query) {
             BooksAPI.search(query).then(books => {
-                books.length > 0 && this.setState({ result: books })
+                books.length > 0? this.setState({ result: books }) : this.setState({ result: [] })
             });
         }
     }
@@ -46,7 +47,7 @@ class SearchBook extends React.Component {
                     </div>
                 </div>
                 <div className="search-books-results">
-                    {this.state.result.length > 0 && 
+                    {this.state.result.length > 0 && this.state.query  &&
                     <ol className="books-grid">
                     {this.state.result.map((b, i)=> {
                         let onShelf = false

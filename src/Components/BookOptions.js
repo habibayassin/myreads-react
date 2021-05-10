@@ -6,7 +6,7 @@ function BookOptions({onShelf, book, updateShelf}) {
 
     const updateBookShelf = event => {updateShelf(book, event.target.value);}
     const prevShelf = onShelf? book.shelf : 'none'
-    console.log(prevShelf)
+    //console.log(prevShelf)
 
     return(
             <div className="book-shelf-changer">
